@@ -1,0 +1,8 @@
+name: TB_Cases_shiny
+account: tomhopper
+server: shinyapps.io
+bundleId: 341952
+url: https://tomhopper.shinyapps.io/TB_Cases_shiny
+when: 1451733382.67389
+asMultiple: FALSE
+asStatic: FALSE
