@@ -54,6 +54,10 @@ shinyServer(function(input, output) {
       scale_size_manual(values = c(rep(1,input$nlabels), 0.5), guide = guide_legend(title = "State")) 
   })
   
+  output$selectState <- renderUI({ 
+    selectInput(inputId = "state", label = "Which state?", choices = unique(df_tb$State), selected = "Alabama", multiple = FALSE)
+  })
+  
   output$iStatePlot <- renderPlot({
     df_tb %>% 
       filter(State == input$state) %>% 
@@ -63,10 +67,6 @@ shinyServer(function(input, output) {
            title = "Reported Active Tuberculosis Cases in the U.S.") +
       theme_minimal() +
       geom_line(aes(x = Year, y = Rate))
-  })
-  
-  output$selectState <- renderUI({ 
-    selectInput(inputId = "state", label = "Which state?", choices = unique(df_tb$State), selected = "Alabama", multiple = FALSE)
   })
   
 })
